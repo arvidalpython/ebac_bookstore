@@ -15,11 +15,12 @@ class TestOrderViewSet(APITestCase):
     client = APIClient()
 
     def setUp(self):
+        self.user = UserFactory() #adiciona usuário
         self.category = CategoryFactory(title="technology")
         self.product = ProductFactory(
             title="mouse", price=100, category=[self.category]
         )
-        self.order = OrderFactory(product=[self.product])
+        self.order = OrderFactory(product=[self.product], user=self.user)
 
     def test_order(self):
         response = self.client.get(

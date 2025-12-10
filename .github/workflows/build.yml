@@ -7,10 +7,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.9]
-        poetry-version: [1.1.4]
+        python-version: [3.12]
+        poetry-version: [1.8.2]
 
     runs-on: ubuntu-latest
+    env:
+      SECRET_KEY: "django-insecure-!4#v*8s_9q$%^&*(5t9*h@#@+$&8su9ih@+#gxp7xhgmy#zr3ew6dg!-m6u#vdv_7g)"
 
     steps:
     - uses: actions/checkout@v2
@@ -30,7 +32,7 @@ jobs:
 
     - name: Install dependencies
       shell: bash
-      run: python -m poetry install
+      run: python -m poetry install --no-root
 
     - name: Test
       run: |

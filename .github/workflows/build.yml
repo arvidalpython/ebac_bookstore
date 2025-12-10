@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      SECRET_KEY: "django-insecure-!4#v*8s_9q$%^&*(5t9*h@#@+$&8su9ih@+#gxp7xhgmy#zr3ew6dg!-m6u#vdv_7g)"
 
     steps:
     - uses: actions/checkout@v2
